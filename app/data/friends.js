@@ -1,3 +1,4 @@
+//base template data
 var friendList = [
     {
       name: 'Jeffrey Huddleston',

@@ -167,7 +167,7 @@
         $("#submit").on("click", function (event) {
             event.preventDefault();
             console.log("did the thing")
-
+            //checks that all fields have been filled out
             function validate() {
                 var valid = true;
 
@@ -184,7 +184,7 @@
                 });
                 return valid;
             }
-
+            //captures inputs if all fields are filled out
             if (validate()) {
                 var friendData = {
                     name: $("#name").val(),
@@ -203,7 +203,7 @@
                     ]
                 };
                 console.log(friendData);
-
+                //posts data to the api and triggers the modal
                 $.post("/api/friendlist", friendData,
                     function (data) {
                         $("#newFriend").text(data.name);
