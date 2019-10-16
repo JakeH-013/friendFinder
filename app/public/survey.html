@@ -162,6 +162,54 @@
             </div>
         </footer>
     </div>
+
+    <script type="text/javascript">
+        $("#submit").on("click", function (event) {
+            event.preventDefault();
+            console.log("did the thing")
+
+            function validate() {
+                var valid = true;
+
+                $(".form-control").each(function () {
+                    if ($(this).val() === "") {
+                        valid = false;
+                    }
+                });
+
+                $(".chosen-select").each(function () {
+                    if ($(this).val() === "") {
+                        valid = false;
+                    }
+                });
+                return valid;
+            }
+
+            if (validate()) {
+                var userData = {
+                    name: $("#name").val(),
+                    photo: $("#picture").val(),
+                    scores: [
+                        $("#ques1").val(),
+                        $("#ques2").val(),
+                        $("#ques3").val(),
+                        $("#ques4").val(),
+                        $("#ques5").val(),
+                        $("#ques6").val(),
+                        $("#ques7").val(),
+                        $("#ques8").val(),
+                        $("#ques9").val(),
+                        $("#ques10").val()
+                    ]
+                };
+                console.log(userData);
+
+            } else {
+                alert("Looks like you forgot some information. Please finish the survey!");
+            }
+        
+        })
+    </script>
 </body>
 
 </html>
