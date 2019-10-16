@@ -136,6 +136,15 @@
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#finder-modal">
             Launch demo modal
         </button>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p><a href="/api/friendlist">API Friendlist</a> |
+                    <a href="https://github.com/JakeH-013/friendFinder">GitHub Repo</a></p>
+            </div>
+        </footer>
+
         <!-- Modal -->
         <div id="finder-modal" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -155,12 +164,7 @@
             </div>
         </div>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="container">
-                <p><a href="/api/friendlist">API Friendlist</a> | <a href="">GitHub Repo</a></p>
-            </div>
-        </footer>
+
     </div>
 
     <script type="text/javascript">
@@ -186,7 +190,7 @@
             }
 
             if (validate()) {
-                var userData = {
+                var friendData = {
                     name: $("#name").val(),
                     photo: $("#picture").val(),
                     scores: [
@@ -202,13 +206,18 @@
                         $("#ques10").val()
                     ]
                 };
-                console.log(userData);
+                console.log(friendData);
 
+                $.post("/api/friendlist", friendData,
+                    function (data) {
+                        $("#newFriend").text(data.name);
+                        $("newFriendPic").text(data.picture);
+                        $("#finder-modal").modal("toggle");
+                    });
             } else {
                 alert("Looks like you forgot some information. Please finish the survey!");
             }
-        
-        })
+        });
     </script>
 </body>
 
