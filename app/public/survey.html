@@ -166,7 +166,7 @@
     <script type="text/javascript">
         $("#submit").on("click", function (event) {
             event.preventDefault();
-            console.log("did the thing")
+            
             //checks that all fields have been filled out
             function validate() {
                 var valid = true;
@@ -202,11 +202,9 @@
                         $("#ques10").val()
                     ]
                 };
-                console.log(friendData);
                 //posts data to the api and triggers the modal
                 $.post("/api/friendlist", friendData,
                     function (data) {
-                        console.log(data)
                         $("#newFriend").text(data.name);
                         $("#newFriendPic").attr("src", data.picture);
                         $("#finder-modal").modal("toggle");
