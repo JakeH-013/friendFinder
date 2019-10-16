@@ -188,7 +188,7 @@
             if (validate()) {
                 var friendData = {
                     name: $("#name").val(),
-                    photo: $("#picture").val(),
+                    picture: $("#picture").val(),
                     scores: [
                         $("#ques1").val(),
                         $("#ques2").val(),
@@ -206,8 +206,9 @@
                 //posts data to the api and triggers the modal
                 $.post("/api/friendlist", friendData,
                     function (data) {
+                        console.log(data)
                         $("#newFriend").text(data.name);
-                        $("newFriendPic").text(data.picture);
+                        $("#newFriendPic").attr("src", data.picture);
                         $("#finder-modal").modal("toggle");
                     });
             } else {
