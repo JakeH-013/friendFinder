@@ -18,4 +18,4 @@ Link: https://jakesfriendfinder.herokuapp.com/
 
 ## Technologies used
 
-Javascript, JQuery, CSS, Bootstrap, Express
+Javascript, JQuery, CSS, Bootstrap, Express.js
